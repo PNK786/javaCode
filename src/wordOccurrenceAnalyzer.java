@@ -11,8 +11,10 @@ public class wordOccurrenceAnalyzer {
 
  public List<String> findNthOccurence(int rank,boolean isDescending) throws IOException {
      Map<String,Long>wordMap=new HashMap<>();
+//   get all the files from the directory
      List<Path> collect = Files.walk(Path.of(FILE_PATH)).filter(Files::isRegularFile).collect(Collectors.toList());
 
+     //Read each file and directory update or store the frequency
      for(Path path : collect) {
          Files.lines(path).flatMap(line-> Arrays.stream(line.split("\\W+")))
 //                 .forEach(word->{
@@ -27,6 +29,8 @@ public class wordOccurrenceAnalyzer {
      }
      System.out.println(wordMap);
 
+//     handle ranking by grouping words by their frequency
+
      Map<Long, List<String>> collect1 = wordMap.entrySet().stream()
              .collect(Collectors.
                      groupingBy(Map.Entry::getValue, Collectors.mapping(
@@ -35,17 +39,28 @@ public class wordOccurrenceAnalyzer {
                      )
              );
      System.out.println("frequencyofWords"+collect1);
+
+//     sort the frequency basdon user search (desc/asc)
+
      List<Long>sortedFrequency=new ArrayList<>(collect1.keySet());
 
      sortedFrequency.sort(isDescending?Comparator.reverseOrder():Comparator.naturalOrder());
 
      System.out.println("sortedFrequency"+sortedFrequency);
-     return null;
+
+     if(rank<=0||rank>sortedFrequency.size()) {
+         throw new IllegalArgumentException("invalid rank");
+     }
+        long targetRak= sortedFrequency.get(rank-1);
+
+//return all the words with the nth rank
+     return collect1.getOrDefault(targetRak,Collections.emptyList());
  }
     public static void main(String[] args) {
         wordOccurrenceAnalyzer wordOccurrenceAnalyzer = new wordOccurrenceAnalyzer();
         try {
-            wordOccurrenceAnalyzer.findNthOccurence(1,true);
+            System.out.println(wordOccurrenceAnalyzer.findNthOccurence(1,true));
+            System.out.println(wordOccurrenceAnalyzer.findNthOccurence(2,false));
         } catch (IOException e) {
             e.printStackTrace();
         }
