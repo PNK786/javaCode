@@ -1,8 +1,10 @@
 package src.java8;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class SkipLimit
 {
@@ -16,5 +18,8 @@ public class SkipLimit
 
         Optional<Integer>maxNum=skipNum.stream().reduce(Math::max);
         System.out.println("Max value using reduce  "+maxNum);
+
+        String collect = skipNum.stream().map(String::valueOf).collect(Collectors.joining(","));
+        System.out.println(collect);
     }
 }

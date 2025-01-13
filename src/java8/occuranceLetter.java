@@ -14,7 +14,10 @@ public class occuranceLetter {
         Map<String, Long> count = Arrays.stream(word.split(""))
                                          .collect(Collectors.groupingBy(Function.identity(),
                                                  Collectors.counting()));
+        Map<String, Long> countNewApproach = Arrays.stream(word.split(""))
+                                     .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         System.out.println(count);
+        System.out.println(countNewApproach);
 
     }
 }

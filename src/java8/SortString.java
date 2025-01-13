@@ -1,13 +1,9 @@
 package src.java8;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 public class SortString
 {
@@ -21,19 +17,17 @@ public class SortString
     public static void main(String[] args) {
         List<String>sortedList =List.of("hi","whatsApp","first","last","hello");
 
-        Map<Character, List<String>> collect = sortedList.stream()
-                .collect(Collectors.groupingBy(sort -> sort.charAt(0)));
-
 
         System.out.println(sorted(sortedList));
-        System.out.println(collect);
+        groupByChar(sortedList);
+
     }
 
-//    public static Map<String, List<String>>groupByChar(List<String> sort)
-//    {
-//        Map<String, List<String>> collect = sort.stream()
-//                                              .collect(Collectors.groupingBy(Function.identity()));
-//
-//        return collect;
-//    }
+    public static Map<Character, List<String>> groupByChar(List<String> sort)
+    {
+        Map<Character, List<String>> collect = sort.stream()
+                .collect(Collectors.groupingBy(sorted -> sorted.charAt(0)));
+
+        return collect;
+    }
 }
