@@ -1,7 +1,8 @@
-package src.java8.Lambda;
+package src.java8;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class SkipLimit
 {
@@ -12,5 +13,8 @@ public class SkipLimit
         System.out.println(skip);
 
         skipNum.stream().skip(3).limit(2).forEach(a-> System.out.println(a));
+
+        Optional<Integer>maxNum=skipNum.stream().reduce(Math::max);
+        System.out.println("Max value using reduce  "+maxNum);
     }
 }

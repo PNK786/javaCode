@@ -1,4 +1,4 @@
-package src.java8.Lambda;
+package src.java8;
 
 import java.util.*;
 import java.util.function.Function;

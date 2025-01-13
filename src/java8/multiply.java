@@ -1,4 +1,4 @@
-package src.java8.Lambda;
+package src.java8;
 
 public interface multiply {
     int mul(int a,int b);

@@ -1,4 +1,4 @@
-package src.java8.Lambda;
+package src.java8;
 
 import java.util.Arrays;
 import java.util.Map;
