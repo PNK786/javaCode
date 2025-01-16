@@ -12,7 +12,10 @@ public class sorting {
 
         Optional<Integer> secondlargestNumber = findSecondlargestNumber(secondLargeUnique);
 
+        System.out.println(secondlargestNumber);
 
+        Optional<Integer> list = sort.stream().sorted(Comparator.reverseOrder()).distinct().skip(1).findFirst();
+        System.out.println(list);
 
     }
 
@@ -20,6 +23,8 @@ public class sorting {
     {
         Map<Integer, Long> frequencyMap = second.stream()
                                                 .collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+
+        System.out.println(frequencyMap);
 
         // Filter unique numbers and sort in descending order
          List<Integer> uniqueNumbers = frequencyMap.entrySet().stream()
