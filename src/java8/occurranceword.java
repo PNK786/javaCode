@@ -18,5 +18,7 @@ public class occurranceword
 
         System.out.println(wordCount);
 
+         list.stream().map(a->a+"  "+ a.length()).forEach(System.out::println);
+
     }
 }
