@@ -21,6 +21,8 @@ public class SortString
         System.out.println(sorted(sortedList));
         groupByChar(sortedList);
 
+        sortedList.stream().filter(a->a.startsWith("h")).forEach(System.out::println);
+
     }
 
     public static Map<Character, List<String>> groupByChar(List<String> sort)
