@@ -1,7 +1,5 @@
 package src.java8;
 
-import java.util.Random;
-import java.util.stream.IntStream;
 
 public class primeNumber {
     public static void main(String[] args) {
