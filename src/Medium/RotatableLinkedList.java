@@ -14,7 +14,6 @@ public class RotatableLinkedList<T>
             this.next = null;
         }
     }
-
         public void insert(T data){
             Node<T> newNode= new Node<>(data);
             if(head ==null){
@@ -22,7 +21,6 @@ public class RotatableLinkedList<T>
             }else {
                 Node<T> current=head;
                 while (current.next!=null){
-
                 }
         }
     }
