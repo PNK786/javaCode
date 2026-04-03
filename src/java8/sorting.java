@@ -17,6 +17,7 @@ public class sorting {
         Optional<Integer> list = sort.stream().sorted(Comparator.reverseOrder()).distinct().skip(1).findFirst();
         System.out.println(list);
 
+
     }
 
     public static Optional<Integer>findSecondlargestNumber(List<Integer> second)
