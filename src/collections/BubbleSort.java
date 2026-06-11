@@ -1,7 +1,5 @@
 package src.collections;
 
-import java.util.Arrays;
-
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {18, 5, 3, 5, 1, 8, 44, 12, 25};
